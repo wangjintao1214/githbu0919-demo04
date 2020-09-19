@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<!DOCTYPE configuration   
- PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
- "http://mybatis.org/dtd/mybatis-3-config.dtd">  
-<configuration>  
-     <settings>  
-         <!-- changes from the defaults -->  
-         <setting name="lazyLoadingEnabled" value="false" />  
-     </settings>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--设置日志-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+        <!--把映射级别改成全映射-->
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">
             <!--  该参数默认为false -->
@@ -25,4 +28,4 @@
             <property name="reasonable" value="true"/>
         </plugin>
     </plugins>
-</configuration>  
+</configuration>
