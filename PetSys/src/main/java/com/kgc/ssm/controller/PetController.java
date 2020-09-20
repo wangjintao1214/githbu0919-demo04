@@ -5,6 +5,7 @@ import com.kgc.ssm.service.PetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,18 +34,20 @@ public class PetController {
     public String toAdd(){
         return "addpet";
     }
-    @RequestMapping("/doAdd")
+
+    @RequestMapping(value = "/doAdd")
     public String doAdd(Pet pet){
-        if(pet.getPetBreed().equals(1)){
+        if(pet.getPetBreed().equals("1")){
             pet.setPetBreed("金毛");
-        }else if(pet.getPetBreed().equals(2)){
+        }else if(pet.getPetBreed().equals("2")){
             pet.setPetBreed("拉布拉多");
-        }else if(pet.getPetBreed().equals(3)){
+        }else if(pet.getPetBreed().equals("3")){
             pet.setPetBreed("柯基");
-        }else if(pet.getPetBreed().equals(4)){
+        }else if(pet.getPetBreed().equals("4")){
             pet.setPetBreed("二哈");
         }
         petService.addPet(pet);
+        System.out.println(pet.toString());
         return "redirect:/";
     }
 }

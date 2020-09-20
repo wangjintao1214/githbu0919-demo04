@@ -4,7 +4,6 @@ import com.kgc.ssm.mapper.PetMapper;
 import com.kgc.ssm.pojo.Pet;
 import com.kgc.ssm.pojo.PetExample;
 import com.kgc.ssm.service.PetService;
-import jdk.nashorn.internal.ir.ReturnNode;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,6 +17,7 @@ import java.util.List;
 public class PetServiceImpl implements PetService{
     @Resource
     PetMapper petMapper;
+
     @Override
     public List<Pet> selectAllPet(Integer type) {
         PetExample example=new PetExample();
