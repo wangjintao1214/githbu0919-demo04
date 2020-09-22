@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.kgc.ssm.mapper.PetMapper" >
   <resultMap id="BaseResultMap" type="com.kgc.ssm.pojo.Pet" >
-    <id column="pet_id" property="petId" jdbcType="INTEGER" />
-    <result column="pet_name" property="petName" jdbcType="VARCHAR" />
-    <result column="pet_breed" property="petBreed" jdbcType="VARCHAR" />
-    <result column="pet_sex" property="petSex" jdbcType="VARCHAR" />
-    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
+    <id column="petid" property="petid" jdbcType="BIGINT" />
+    <result column="petname" property="petname" jdbcType="VARCHAR" />
+    <result column="petbreed" property="petbreed" jdbcType="VARCHAR" />
+    <result column="petsex" property="petsex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="describle" property="describle" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    pet_id, pet_name, pet_breed, pet_sex, birthday, description
+    petid, petname, petbreed, petsex, birthday, describle
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.ssm.pojo.PetExample" >
     select
@@ -85,14 +85,14 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from pet
-    where pet_id = #{petId,jdbcType=INTEGER}
+    where petid = #{petId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pet
-    where pet_id = #{petId,jdbcType=INTEGER}
+    where petid = #{petId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.kgc.ssm.pojo.PetExample" >
     delete from pet
@@ -101,33 +101,33 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kgc.ssm.pojo.Pet" >
-    insert into pet (pet_id, pet_name, pet_breed, 
-      pet_sex, birthday, description
+    insert into pet (petid, petname, petbreed,
+      petsex, birthday, describle
       )
-    values (#{petId,jdbcType=INTEGER}, #{petName,jdbcType=VARCHAR}, #{petBreed,jdbcType=VARCHAR}, 
-      #{petSex,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}
+    values (#{petId,jdbcType=INTEGER}, #{petName,jdbcType=VARCHAR}, #{petBreed,jdbcType=VARCHAR},
+      #{petSex,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{describle,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.ssm.pojo.Pet" >
     insert into pet
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="petId != null" >
-        pet_id,
+        petid,
       </if>
       <if test="petName != null" >
-        pet_name,
+        petname,
       </if>
       <if test="petBreed != null" >
-        pet_breed,
+        petbreed,
       </if>
       <if test="petSex != null" >
-        pet_sex,
+        petsex,
       </if>
       <if test="birthday != null" >
         birthday,
       </if>
-      <if test="description != null" >
-        description,
+      <if test="describle != null" >
+        describle,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -146,8 +146,8 @@
       <if test="birthday != null" >
         #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="description != null" >
-        #{description,jdbcType=VARCHAR},
+      <if test="describle != null" >
+        #{describle,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -161,22 +161,22 @@
     update pet
     <set >
       <if test="record.petId != null" >
-        pet_id = #{record.petId,jdbcType=INTEGER},
+        petid = #{record.petId,jdbcType=INTEGER},
       </if>
       <if test="record.petName != null" >
-        pet_name = #{record.petName,jdbcType=VARCHAR},
+        petname = #{record.petName,jdbcType=VARCHAR},
       </if>
       <if test="record.petBreed != null" >
-        pet_breed = #{record.petBreed,jdbcType=VARCHAR},
+        petbreed = #{record.petBreed,jdbcType=VARCHAR},
       </if>
       <if test="record.petSex != null" >
-        pet_sex = #{record.petSex,jdbcType=VARCHAR},
+        petsex = #{record.petSex,jdbcType=VARCHAR},
       </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.description != null" >
-        description = #{record.description,jdbcType=VARCHAR},
+      <if test="record.describle != null" >
+        describle = #{record.describle,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -185,12 +185,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update pet
-    set pet_id = #{record.petId,jdbcType=INTEGER},
-      pet_name = #{record.petName,jdbcType=VARCHAR},
-      pet_breed = #{record.petBreed,jdbcType=VARCHAR},
-      pet_sex = #{record.petSex,jdbcType=VARCHAR},
+    set petid = #{record.petId,jdbcType=INTEGER},
+      petname = #{record.petName,jdbcType=VARCHAR},
+      petbreed = #{record.petBreed,jdbcType=VARCHAR},
+      petsex = #{record.petSex,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=TIMESTAMP},
-      description = #{record.description,jdbcType=VARCHAR}
+      describle = #{record.describle,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -199,30 +199,30 @@
     update pet
     <set >
       <if test="petName != null" >
-        pet_name = #{petName,jdbcType=VARCHAR},
+        petname = #{petName,jdbcType=VARCHAR},
       </if>
       <if test="petBreed != null" >
-        pet_breed = #{petBreed,jdbcType=VARCHAR},
+        petbreed = #{petBreed,jdbcType=VARCHAR},
       </if>
       <if test="petSex != null" >
-        pet_sex = #{petSex,jdbcType=VARCHAR},
+        petsex = #{petSex,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="description != null" >
-        description = #{description,jdbcType=VARCHAR},
+      <if test="describle != null" >
+        describle = #{describle,jdbcType=VARCHAR},
       </if>
     </set>
-    where pet_id = #{petId,jdbcType=INTEGER}
+    where petid = #{petId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kgc.ssm.pojo.Pet" >
     update pet
-    set pet_name = #{petName,jdbcType=VARCHAR},
-      pet_breed = #{petBreed,jdbcType=VARCHAR},
-      pet_sex = #{petSex,jdbcType=VARCHAR},
+    set petname = #{petName,jdbcType=VARCHAR},
+      petbreed = #{petBreed,jdbcType=VARCHAR},
+      petsex = #{petSex,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=TIMESTAMP},
-      description = #{description,jdbcType=VARCHAR}
-    where pet_id = #{petId,jdbcType=INTEGER}
+      describle = #{describle,jdbcType=VARCHAR}
+    where petid = #{petId,jdbcType=INTEGER}
   </update>
 </mapper>

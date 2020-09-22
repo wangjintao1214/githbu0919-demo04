@@ -3,63 +3,64 @@ package com.kgc.ssm.pojo;
 import java.util.Date;
 
 public class Pet {
-    private Integer petId;
+    private Long petid;
 
-    private String petName;
+    private String petname;
 
-    private String petBreed;
+    private String petbreed;
 
-    private String petSex;
+    private String petsex;
 
-    private Date birthday;
+    private String birthday;
 
-    private String description;
+    private String describle;
 
-    public Integer getPetId() {
-        return petId;
+    public Long getPetid() {
+        return petid;
     }
 
-    public void setPetId(Integer petId) {
-        this.petId = petId;
+    public void setPetid(Long petid) {
+        this.petid = petid;
     }
 
-    public String getPetName() {
-        return petName;
+    public String getPetname() {
+        return petname;
     }
 
-    public void setPetName(String petName) {
-        this.petName = petName == null ? null : petName.trim();
+    public void setPetname(String petname) {
+        this.petname = petname == null ? null : petname.trim();
     }
 
-    public String getPetBreed() {
-        return petBreed;
+    public String getPetbreed() {
+        return petbreed;
     }
 
-    public void setPetBreed(String petBreed) {
-        this.petBreed = petBreed == null ? null : petBreed.trim();
+    public void setPetbreed(String petbreed) {
+        this.petbreed = petbreed == null ? null : petbreed.trim();
     }
 
-    public String getPetSex() {
-        return petSex;
+    public String getPetsex() {
+        return petsex;
     }
 
-    public void setPetSex(String petSex) {
-        this.petSex = petSex == null ? null : petSex.trim();
+    public void setPetsex(String petsex) {
+        this.petsex = petsex == null ? null : petsex.trim();
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescrible() {
+        return describle;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setDescrible(String describle) {
+        this.describle = describle == null ? null : describle.trim();
     }
+
 }
